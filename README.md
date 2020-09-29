@@ -24,10 +24,17 @@ To use this proxy server:
 2. Download each of the above repos (in the section "Related Projects". Each repo represents a service to this proxy) into its own unique directory. Then follow the instructions in each ReadMe - for each service - for how to seed a MongoDB instance running on your computer, with data. Also, follow the instructions for starting each of the service's servers.
 3. Then start the proxy's server by making the proxy's root directory the cd in terminal and running >npm run server
 4. Visit any page that follows the form:
+<<<<<<< HEAD
 http://127.0.0.1:3010/product?itemID='value 100 to 10,000,000 without the quotes'
 
 5. To run the tests, visit the following link (after following the special note below):
 http://127.0.0.1:3010/SpecRunner.html
+=======
+http://127.0.0.1:3000/product?itemID='value 100 to 199 without the quotes'
+
+5. To run the tests, visit the following link (after following the special note below):
+http://127.0.0.1:3000/SpecRunner.html
+>>>>>>> 5df1b656179a19d18f0808fdd493a855cf398263
 NOTE: as the page that loads tells you, you have to wait before the tests will run. This is to give the embedded iframe the chance to load the proxy's html file, followed by that html file sending out get requests for the service components, followed by those components sending out requests for data.
 5. See section below on deployment, if you want to deploy the proxy server.
 
@@ -67,7 +74,11 @@ For each variable, you replace all the [ ] brackets and everything inside them w
 >chmod 700 ./bashScripts/bashScript2.sh
 >chmod 700 ./bashScripts/bashScript3.sh
 
+<<<<<<< HEAD
 You do not need to do this with the last three files since you won't be executing them directly.
+=======
+You do not need to do this with the last three files since you won't be executing them directly. 
+>>>>>>> 5df1b656179a19d18f0808fdd493a855cf398263
 
 6. Now follow this process to deploy:
 - Make sure all IP addresses and script tags are accurate(see step 2 above)
@@ -78,7 +89,11 @@ You do not need to do this with the last three files since you won't be executin
 - Once both script 2 and 3 are done running, you will have your image on Docker Hub and you will be logged into your AWS server, in the second terminal window. It is this window that you will use for the remaining steps.
 - If you already have an older image running on the AWS instance. You have to: 1. >docker ps     and then copy and paste the correct container's ID into bashScript4.sh, for the runningContainerID variable. 2. the same command already gives you access to Image ID also, so copy and paste the correct image's ID for the runningImageID variable in the same file. 3. Copy and paste the entire contents of bashScript4.sh (EXCEPT the last line) into the second terminal, hit enter, then enter y when prompted. Once those scripts finihs running, copy just the last line into the terminal and hit enter.
 - To pull the image you built and pushed to Docker Hub, you first have to login to Docker Hub with >docker login --username="your username, without quotes". Then in bashScript5.sh, update the version variable with the same version you gave it, then copy and paste all the code into the second terminal, and hit enter. You will have to enter your Docker Hub password when prompted
+<<<<<<< HEAD
 - Lastly, use >docker images     to get the Image ID for the image you just pulled, then copy and paste it into bashScript6.sh for the variable  imageID. Then copy and paste the file's entire contents into the second terminal and hit enter. The instance should now be running. Visit http://"your proxy instance's IP address, without quotes":3000/product?itemID=10,000,000 to confirm
+=======
+- Lastly, use >docker images     to get the Image ID for the image you just pulled, then copy and paste it into bashScript6.sh for the variable  imageID. Then copy and paste the file's entire contents into the second terminal and hit enter. The instance should now be running. Visit http://"your proxy instance's IP address, without quotes":3000/product?itemID=100 to confirm
+>>>>>>> 5df1b656179a19d18f0808fdd493a855cf398263
 
 
 
