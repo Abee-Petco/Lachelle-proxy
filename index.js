@@ -1,11 +1,9 @@
 const express = require('express');
 const serveStatic = require('serve-static');
+///serve-static serves files fr w/in a given root dir, which is determined by combining req.url w/ provided root dir
+//Enable or disable setting Cache-Control response header, defaults to true. Disabling this will ignore the immutable and maxAge options.
 const morgan = require('morgan');
-<<<<<<< HEAD
 const path = require('path');
-=======
-
->>>>>>> 5df1b656179a19d18f0808fdd493a855cf398263
 const server = express();
 
 server.use(morgan('dev'));
@@ -15,20 +13,11 @@ server.get('/product', (req, res) => {
   const { itemID } = req.query;
   const itemIdNumber = Number.parseInt(itemID, 10);
 
-<<<<<<< HEAD
-
-  if (itemIdNumber < 100 || itemIdNumber > 10000000 || itemIdNumber === undefined) {
-=======
-  if (itemIdNumber < 100 || itemIdNumber > 199 || itemIdNumber === undefined) {
->>>>>>> 5df1b656179a19d18f0808fdd493a855cf398263
+  if (itemIdNumber < 100 || itemIdNumber > 10000100 || itemIdNumber === undefined) {
     res.status(404).send('itemID invalid');
   } else {
     res.sendFile(`${__dirname}/client/index.html`);
   }
 });
 
-<<<<<<< HEAD
 server.listen(3010);
-=======
-server.listen(3000);
->>>>>>> 5df1b656179a19d18f0808fdd493a855cf398263
